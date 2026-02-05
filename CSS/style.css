@@ -1,0 +1,57 @@
+/* Basic styles and Reset for my portfolio website */
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+  font-family: Ariel,sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-image: url('../images/pexels-googledeepmind-18069161.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+/* Navigation */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+/* sections styles */
+section {
+  margin: 40px 0;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+h1, h2 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 2px solid #f0f0f0;
+  color: #666;
+}
