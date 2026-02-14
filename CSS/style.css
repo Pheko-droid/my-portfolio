@@ -22,6 +22,11 @@ body {
  
 /* Trying to enhance the navigation bar - Mobile First */
 nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 20px;
   background-color: skyblue;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: sticky;
@@ -34,9 +39,13 @@ nav ul {
   list-style: none;
   justify-content: center;
   flex-wrap: wrap; /* For mobile view and resposnive design */
-  padding: 1rem 0;
+  padding: 0;
+  margin: 0;
   gap: 1.5rem;
   border-bottom: 2px solid #f0f0f0;
+}
+.theme-toggle{
+  margin-left: auto;
 }
 
 nav a {
@@ -144,6 +153,26 @@ section{
     grid-template-columns: 1fr;
   }
 
+  .project-card {
+    transition: all 0.3s ease;
+    transform: translateY(0);
+  }
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: #3498db;
+  }
+  @keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.02);}
+    100% {transform: scale(1);}
+  }
+
+  .project-card:hover {
+    animation: pulse 0.5s ease-in-out;
+  }
+  
+
 .tech-tag {
   background: #e9ecef;
   padding: 3px 10px;
@@ -157,7 +186,70 @@ section{
 
 /* Media Queries for responsive design */
 @media (max-width: 768px) {
-  #home h1 {
+  #hero h1 {
     font-size: 2rem;
   }
+}
+
+/* Adding some animations and transitions for better user experience */
+:root {
+  --primary-color: #3498db;
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --card-bg: #f8f9fa;
+  --nav-bg: skyblue;
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+  --primary-color: #3498db;
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #34495e;
+  --nav-bg: #2980b9;
+  --shadow: 0 5px 15px rgba(255, 255, 0, 0.3);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+section {
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+}
+
+nav {
+  background-color: var(--nav-bg);
+}
+
+/* Adding a dark mode toggle button */
+.theme-toggle {
+  background: none;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 8px 14px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: auto;
+  transition: all 0.3s ease;
+}
+/* Adding some hover effects to the theme toggle button */
+.theme-toggle:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+/* Adding dark mode styles */
+[data-theme="dark"] .theme-toggle {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #34495e;
+  --nav-bg: #2980b9;
+}
+/* Adding a smooth transition for theme changes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
